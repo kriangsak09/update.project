@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+#wrapper {
+    display: flex;
+    width: 100%;
+}
+#sidebar-wrapper {
+    width: 250px;
+    border-right: 1px solid #dee2e6;
+}
+#page-content-wrapper {
+    width: 100%;
+}
+.sidebar-heading {
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+.list-group-item {
+    padding: 1rem;
+    font-size: 1rem;
+}
+.navbar {
+    padding: 1rem;
+}
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.card-img-top {
+    height: 375px;
+    width: 150px;
+    object-fit: cover;
+}
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.input-group {
+    margin-bottom: 2rem; /* Adjust margin as needed */
+}
+#search_btn {
+    border-radius: 0px 5px 5px 0px;
+}
+#clear_btn {
+    border-radius: 5px;
+    margin-left: 5px;
+}
+#export_btn {
+    border-radius: 5px;
+    margin-left: auto;
+}
+#edit_btn {
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.container-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem; /* Adjust margin as needed */
+}
+.form-check {
+    text-align: start;
+    width: 110px;
+}

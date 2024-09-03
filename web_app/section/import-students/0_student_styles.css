@@ -1,0 +1,31 @@
+.container-members-fluid {
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+#user-tie {
+    background: transparent; /* ทำให้พื้นหลังของปุ่มเป็นใส */
+    border: none; /* เอาขอบออกจากปุ่ม */
+    padding: 0; /* เอาระยะห่างภายในปุ่มออก */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางบนปุ่ม */
+}
+
+#user-tie i {
+    font-size: 10em; /* กำหนดขนาดของไอคอน (ปรับขนาดตามต้องการ) */
+    color: #000; /* กำหนดสีของไอคอน (เปลี่ยนตามต้องการ) */
+}
+
+#url_Import_members {
+    width: 200px; /* ขนาดของ Import members Btn */
+}
+
+.button-members-fluid {
+    margin-top: 15px;
+}
+#importForm {
+        display: flex;
+        flex-direction: column;
+}

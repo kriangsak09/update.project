@@ -1,0 +1,328 @@
+/* Small devices (Phone 0-576px) */
+@media (max-width: 576px) { 
+    /* Header details */
+    .container {
+        max-width: 415px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: start;
+    }
+    /* Manage Members */
+    .container-weeks {
+        max-width: 415px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    /* More & import  */
+    .container-header-weeks {
+        max-width: 375px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    /* More details */
+    .container-count-std {
+        height: 150px;
+        width: 100%;
+        padding: 30px;
+        margin: 0px;
+        background-color: #ffffff;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    /* Imort form */
+    .container-form {
+        font-size: 12px;
+        width: 100%;
+        padding: 30px;
+        background-color: #ffffff;
+        margin: 0px 0px 20px 0px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .container-form button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    /* table custom */
+    .table-container {
+        width: 100%;  /* กำหนดความกว้างของตาราง */
+        height: 300px; /* กำหนดความสูงของตาราง */
+        overflow-x: auto; /* เปิด Scrollbar แนวนอนเมื่อเนื้อหายาวกว่าความกว้าง */
+        overflow-y: auto; /* เปิด Scrollbar แนวตั้งเมื่อเนื้อหายาวกว่าความสูง */
+    }
+    table th {
+        font-size: 8px;
+        padding: 8px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    }    
+    table td {
+        font-size: 7px;
+        padding: 6px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    } 
+    td {
+        word-wrap: break-word; /* ตัดคำเมื่อข้อความยาวเกินขนาดที่กำหนด */
+        white-space: normal; /* อนุญาตให้ตัดบรรทัดในข้อความ */
+        overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
+    }
+    th.col-1 {
+        width: 20px; /* No */
+    }
+    th.col-2 {
+        width: 130px; /* Std_id */
+    }
+    th.col-3 {
+        width: 200px; /* Name */
+    }
+    th.col-4 {
+        width: 180px; /* Facty */
+    }
+    th.col-5 {
+        width: 60px; /* Action */
+    } 
+    /* Action Btn */
+    .custom-btn {
+        font-size: 8px;
+        width:  38px;
+        padding: 3px 6px;
+        margin: 3px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+
+}
+
+/*Medium devices (tablets, 576px and up)*/
+@media (min-width: 576px) { 
+    .container {
+        max-width: 700px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: start;
+    }
+    .container-weeks {
+        max-width: 700px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .container-header-weeks {
+        display: flex;
+        justify-content: space-between;
+        max-width: 700px;
+        margin: 30px 0px 30px 0px ;
+    }
+    .container-count-std {
+        min-width: 300px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .container-form {
+        max-width: 300px;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* table custom */
+    .table-container {
+        width: 100%;  /* กำหนดความกว้างของตาราง */
+        height: 300px; /* กำหนดความสูงของตาราง */
+        overflow-x: auto; /* เปิด Scrollbar แนวนอนเมื่อเนื้อหายาวกว่าความกว้าง */
+        overflow-y: auto; /* เปิด Scrollbar แนวตั้งเมื่อเนื้อหายาวกว่าความสูง */
+    }
+    table th {
+        font-size: 11px;
+        padding: 8px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    }    
+    table td {
+        font-size: 10px;
+        padding: 6px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    } 
+    td {
+        word-wrap: break-word; /* ตัดคำเมื่อข้อความยาวเกินขนาดที่กำหนด */
+        white-space: normal; /* อนุญาตให้ตัดบรรทัดในข้อความ */
+        overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
+    }
+    th.col-1 {
+        width: 20px; /* No */
+    }
+    th.col-2 {
+        width: 120px; /* Std_id */
+    }
+    th.col-3 {
+        width: 160px; /* Name */
+    }
+    th.col-4 {
+        width: 160px; /* Facty */
+    }
+    th.col-5 {
+        width: 60px; /* Action */
+    } 
+    /* Action Btn */
+    .custom-btn {
+        font-size: 10px;
+        width:  50px;
+        padding: 4px 8px;
+        margin: 3px;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .navbar-custom .nav-link {
+        color: rgb(46, 46, 46);
+        padding-bottom: 5px;
+        position: relative;
+    }
+
+    .navbar-custom .nav-link::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        height: 4px; /* ปรับความหนาของเส้น */
+        background-color: #7124ff; /* สีของเส้นใต้ */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    .navbar-custom .nav-link:hover::after,
+    .navbar-custom .nav-link.active::after {
+        width: 100%;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: start;
+    }
+    .container-weeks {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .container-header-weeks {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 30px 0px 30px 0px ;
+    }
+    .container-count-std {
+        min-width: 550px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .container-form {
+        max-width: 300px;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* table custom */
+    .table-container {
+        width: 100%;  /* กำหนดความกว้างของตาราง */
+        height: 300px; /* กำหนดความสูงของตาราง */
+        overflow-x: auto; /* เปิด Scrollbar แนวนอนเมื่อเนื้อหายาวกว่าความกว้าง */
+        overflow-y: auto; /* เปิด Scrollbar แนวตั้งเมื่อเนื้อหายาวกว่าความสูง */
+    }
+    table th {
+        font-size: 14px;
+        padding: 8px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    }    
+    table td {
+        font-size: 14px;
+        padding: 6px; /* กำหนด padding ภายในเซลล์ */
+        border: 1px solid #ddd; /* เส้นขอบของเซลล์ */
+        text-align: center; /* จัดข้อความให้อยู่ซ้าย */
+        vertical-align: top; /* จัดข้อความให้อยู่ด้านบนของเซลล์ */
+        text-decoration: none; /* ลบการขีดเส้นใต้ */
+    } 
+    td {
+        word-wrap: break-word; /* ตัดคำเมื่อข้อความยาวเกินขนาดที่กำหนด */
+        white-space: normal; /* อนุญาตให้ตัดบรรทัดในข้อความ */
+        overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
+    }
+    th.col-1 {
+        width: 20px; /* No */
+    }
+    th.col-2 {
+        width: 120px; /* Std_id */
+    }
+    th.col-3 {
+        width: 160px; /* Name */
+    }
+    th.col-4 {
+        width: 160px; /* Facty */
+    }
+    th.col-5 {
+        width: 30px; /* Action */
+    } 
+    /* Action Btn */
+    .custom-btn {
+        font-size: 14px; /* ขนาดฟอนต์ */
+        padding: 8px 16px; /* ขนาด padding ของปุ่ม */
+        display: inline-block;
+        width: 80px; /* กำหนดความกว้างของปุ่ม */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        line-height: 1.5; /* ความสูงของบรรทัดเพื่อให้ปุ่มมีความสูงเท่ากัน */
+        margin: 3px;
+    }
+}
+

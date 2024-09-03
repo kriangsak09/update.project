@@ -1,0 +1,39 @@
+.container-members-fluid {
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    width: 60%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+#user-tie {
+    background: transparent; /* ทำให้พื้นหลังของปุ่มเป็นใส */
+    border: none; /* เอาขอบออกจากปุ่ม */
+    padding: 0; /* เอาระยะห่างภายในปุ่มออก */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางบนปุ่ม */
+}
+
+#user-tie i {
+    font-size: 10em; /* กำหนดขนาดของไอคอน (ปรับขนาดตามต้องการ) */
+    color: #000; /* กำหนดสีของไอคอน (เปลี่ยนตามต้องการ) */
+}
+
+#url_Face_detection {
+    width: 350px; /* ขนาดของ Import members Btn */
+    padding: 10px 20px;
+}
+#resetBtn {
+    width: 100px; /* ขนาดของ Import members Btn */
+    padding: 10px 20px;
+    margin-right: 5px;
+}
+#importForm {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,110 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* การตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+caption {
+    caption-side: top;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* การตั้งค่าคอนเทนเนอร์หลัก */
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Set height to full viewport height */
+}
+
+.page-content-wrapper {
+    flex: 1;
+    overflow-y: auto; /* Add vertical scrolling if content overflows */
+}
+
+/* หัวข้อ */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    width: 100%;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* การตั้งค่าผลลัพธ์ */
+.result-container {
+    margin-top: 20px;
+}
+
+.result-container h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.result-container p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.result-container img {
+    max-width: 100%;
+    max-height: 400px; /* ปรับความสูงสูงสุดสำหรับรูปแนวนอน */
+    width: auto; /* คงความสัมพันธ์ระหว่างความกว้างและความสูง */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.name-container {
+    padding-left: 20px;
+    text-align: start;
+}
+
+/* Left Sidebar */
+.left-group {
+    width: 250px;
+    height: 100vh;
+    border: 1px solid black;
+}
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}

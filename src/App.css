@@ -1,0 +1,102 @@
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ใช้ความสูงของ viewport */
+  overflow: hidden; /* ป้องกันการเลื่อนทั้งหมด */
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* ใช้ความกว้างของ viewport */
+  height: 100vh; /* ใช้ความสูงของ viewport */
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  background-color: white;
+  padding: 0px; /* ลด padding ลง */
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  width: 95%; /* ปรับขนาดกรอบให้ใหญ่ขึ้น */
+  height: 95%; /* ปรับขนาดกรอบให้ใหญ่ขึ้น */
+  max-width: 1200px; /* ความกว้างสูงสุดของกรอบ */
+  max-height: 600px; /* ความสูงสูงสุดของกรอบ */
+  box-sizing: border-box; /* เพื่อให้ padding นับรวมในขนาดของกรอบ */
+  overflow: hidden; /* ป้องกันการเลื่อนภายในกรอบ */
+}
+
+.left-side {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* จัดกลางแนวนอน */
+  align-items: center; /* จัดกลางแนวตั้ง */
+  text-align: center;
+}
+
+.right-side {
+  flex: 1;
+  background-image: url('C:\xampp\htdocs\myproject\learn-reactjs-2024\src\righ img.png'); /* ตั้งค่าพื้นหลังเป็นรูปภาพ */
+  background-size: cover; /* ให้รูปภาพครอบคลุมพื้นที่ทั้งหมด */
+  background-position: center; /* จัดตำแหน่งรูปภาพให้อยู่กลาง */
+  background-repeat: no-repeat; /* ป้องกันการทำซ้ำของรูปภาพ */
+}
+
+/* Media Queries สำหรับขนาดหน้าจอ 480px หรือน้อยกว่า */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column; /* จัดให้เป็นคอลัมน์ */
+  }
+
+  .left-side, .right-side {
+    width: 100%; /* ให้กว้างเต็มพื้นที่ */
+    height: auto; /* ปรับความสูงให้เหมาะสม */
+  }
+
+  .right-side {
+    background-size: cover; /* ให้รูปภาพครอบคลุมพื้นที่ทั้งหมด */
+    background-position: center;
+  }
+}
+
+.google-login-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db4437; /* เปลี่ยนพื้นหลังปุ่มเป็นสีแดง */
+  color: white; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+  border: none;
+  border-radius: 150px; /* ปรับความโค้งมน */
+  padding: 12px 40px; /* เพิ่ม padding เพื่อให้ปุ่มยาวขึ้น */
+  font-size: 18px; /* ขนาดตัวอักษร */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  transition: all 0.3s ease;
+  width: 300px; /* ความกว้างของปุ่ม */
+}
+
+.google-login-button:hover {
+  background-color: #c23321; /* เปลี่ยนสีเมื่อ hover ให้เป็นสีแดงเข้ม */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้นเมื่อ hover */
+}
+
+.google-login-button img {
+  width: 24px; /* ขนาดโลโก้ */
+  height: 24px;
+  margin-right: 15px; /* ระยะห่างระหว่างโลโก้และข้อความ */
+}
+
+.google-login-button span {
+  font-size: 18px;
+}
+
+
