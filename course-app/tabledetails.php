@@ -109,7 +109,7 @@ try {
     echo "Error: " . $e->getMessage();
 }
 
-// สีของปุ่ม section มีดังนี้ โดยสีพวกนี้จะทำการสุ่มตามที่เราเพิ่มในโค้ดนี้
+// สีของปุ่ม Section มีดังนี้ โดยสีพวกนี้จะทำการสุ่มตามที่เราเพิ่มในโค้ดนี้
 $colors = ['#4a235a', '#943126', '#196f3d', '#21618c', '#283747', '#af601a'];
 
 // Function to get color for a course ID
@@ -158,7 +158,7 @@ usort($courses, function ($a, $b) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Timetable</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/knowledge.png" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -179,112 +179,117 @@ usort($courses, function ($a, $b) {
         }
 
        /* Container หลัก */
-.table-container {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    overflow-x: auto; /* ทำให้ตารางสามารถเลื่อนได้ในหน้าจอเล็ก */
-}
+        .table-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* ปรับให้ตารางเริ่มแสดงจากทางด้านซ้าย ถ้าเป็น center มันอยู่กลางนะเเต่มันเเสดงข้อมูลในตารางไม่ครบ ข้อมูล ID */
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            overflow-x: auto; /* ทำให้ตารางสามารถเลื่อนได้ในหน้าจอเล็ก */
+        }
 
-/* หัวตาราง */
-.table-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin: 0 auto;
-    max-width: 600px; /* จำกัดความกว้างของหัวตาราง */
-}
+        /* หัวตาราง */
+        .table-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            align-items: center; 
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+            border-width: 100%;
+            padding-bottom: 10px;
+            width: 100%; /* จำกัดความกว้างของหัวตาราง */
+        }
 
-/* ตาราง */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        /* ตาราง */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-.table th, .table td {
-    padding: 8px;
-    text-align: left;
-    white-space: nowrap; /* ป้องกันการตัดคำ */
-}
+        .table th, .table td {
+            padding: 8px;
+            text-align: center;
+            white-space: nowrap; /* ป้องกันการตัดคำ */
+        }
+
+        /* ปรับแต่งสำหรับหน้าจอขนาดเล็กมาก */
+        @media screen and (max-width: 580px) {
+
+            .sidebar-heading {
+                padding: 10px;
+            }
+            #sidebar-wrapper {
+            width: 300px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: -250px; /* Hide by default */
+            transition: all 0.3s ease;
+            overflow-y: auto; /* เพิ่มคุณสมบัติ overflow */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* Initially hidden */
+            z-index: 998; /* Higher than content */
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+            left: 0; /* Show sidebar */
+            z-index: 999; /* Higher than overlay */
+        }
+
+        #wrapper.toggled .overlay {
+            display: block; /* Show overlay */
+        }
+
+        #wrapper.sb-sidenav-toggled #sidebar-wrapper {
+                left: 0;
+                z-index: 999; /* Higher than overlay */
+                transition: left 0.3s ease;
+            }
+
+            #wrapper.sb-sidenav-toggled .overlay {
+                display: block;
+                transition: left 0.3s ease;
+            }
 
 
-/* ปรับแต่งสำหรับหน้าจอขนาดเล็กมาก */
-@media screen and (max-width: 580px) {
+            .table-container {
+                padding: 10px;
+                max-width: 100%;
+            }
 
-    .sidebar-heading {
-        padding: 10px;
-    }
-    #sidebar-wrapper {
-    width: 300px;
-    background-color: #f8f9fa;
-    border-right: 1px solid #ddd;
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: -250px; /* Hide by default */
-    transition: all 0.3s ease;
-    overflow-y: auto; /* เพิ่มคุณสมบัติ overflow */
-}
+            .table-title {
+                font-size: 18px;
+            }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Initially hidden */
-    z-index: 998; /* Higher than content */
-}
+            .table th, .table td {
+                font-size: 0.8em;
+                padding: 10px;
+            }
 
-#wrapper.toggled #sidebar-wrapper {
-    left: 0; /* Show sidebar */
-    z-index: 999; /* Higher than overlay */
-}
+            .table-title {
+                max-width: 100%;
+            }
 
-#wrapper.toggled .overlay {
-    display: block; /* Show overlay */
-}
-
-#wrapper.sb-sidenav-toggled #sidebar-wrapper {
-        left: 0;
-        z-index: 999; /* Higher than overlay */
-        transition: left 0.3s ease;
-    }
-
-    #wrapper.sb-sidenav-toggled .overlay {
-        display: block;
-        transition: left 0.3s ease;
-    }
-
-
-    .table-container {
-        padding: 10px;
-    }
-
-    .table-title {
-        font-size: 18px;
-    }
-
-    .table th, .table td {
-        font-size: 0.8em;
-        padding: 5px;
-    }
-
-    .table-title {
-        max-width: 100%;
-    }
-
-    .form-label {
-    font-size: 0.9em;
-    }
-}
+            .form-label {
+            font-size: 0.9em;
+            }
+        }
 
         .form-group {
             margin-bottom: 0;
@@ -346,189 +351,189 @@ usort($courses, function ($a, $b) {
     display: flex;
     flex-direction: column; /* เรียงปุ่มในแนวตั้ง */
     align-items: center;
-}
+        }
 
 
-.btn-details {
-    display: block;
-    width: 100%; /* ปรับขนาดความกว้างของปุ่ม */
-    margin: 10px 0; /* ระยะห่างระหว่างปุ่ม */
-    padding: 15px; /* ระยะห่างภายในปุ่ม */
-    font-size: 16px; /* ขนาดตัวอักษรทั่วไป */
-    color: #fff; /* สีตัวอักษร */
-    text-align: left; /* จัดข้อความในปุ่มให้ชิดซ้าย */
-    text-decoration: none; /* ลบเส้นขีดใต้ข้อความ */
-    border-radius: 5px; /* มุมปุ่มเป็นมน */
-    border: none;
-    box-sizing: border-box; /* ให้ขนาดของปุ่มรวมขอบและระยะห่างภายใน */
-}
+        .btn-details {
+            display: block;
+            width: 100%; /* ปรับขนาดความกว้างของปุ่ม */
+            margin: 10px 0; /* ระยะห่างระหว่างปุ่ม */
+            padding: 15px; /* ระยะห่างภายในปุ่ม */
+            font-size: 16px; /* ขนาดตัวอักษรทั่วไป */
+            color: #fff; /* สีตัวอักษร */
+            text-align: left; /* จัดข้อความในปุ่มให้ชิดซ้าย */
+            text-decoration: none; /* ลบเส้นขีดใต้ข้อความ */
+            border-radius: 5px; /* มุมปุ่มเป็นมน */
+            border: none;
+            box-sizing: border-box; /* ให้ขนาดของปุ่มรวมขอบและระยะห่างภายใน */
+        }
 
 
 
-.subject-name {
-    font-size: 50px; /* ขนาดตัวอักษรสำหรับชื่อวิชา */
-    font-weight: bold; /* ทำให้ชื่อวิชาหนาขึ้น */
-}
+        .subject-name {
+            font-size: 50px; /* ขนาดตัวอักษรสำหรับชื่อวิชา */
+            font-weight: bold; /* ทำให้ชื่อวิชาหนาขึ้น */
+        }
 
-.btn-container-2 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        .btn-container-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-.btn-circle {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    border-radius: 8px; /* เพิ่มมุมมนให้ปุ่ม */
-}
+        .btn-circle {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px; /* เพิ่มมุมมนให้ปุ่ม */
+        }
 
-.btn-circle:hover {
-    background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
-    transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
-}
+        .btn-circle:hover {
+            background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
+            transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
+        }
 
-.circle-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white; /* สีข้อความในวงกลม */
-    font-weight: bold;
-    font-size: 1em;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s;
-}
+        .circle-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* สีข้อความในวงกลม */
+            font-weight: bold;
+            font-size: 1em;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-.circle-icon:hover {
-    transform: scale(1.1); /* ขยายวงกลมเล็กน้อยเมื่อเมาส์เลื่อนมาที่มัน */
-}
+        .circle-icon:hover {
+            transform: scale(1.1); /* ขยายวงกลมเล็กน้อยเมื่อเมาส์เลื่อนมาที่มัน */
+        }
 
-.circle-text {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+        .circle-text {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.course-info {
-    display: flex;
-    flex-direction: column;
-}
+        .course-info {
+            display: flex;
+            flex-direction: column;
+        }
 
-.info-row {
-    display: flex;
-    flex-direction: row;
-}
+        .info-row {
+            display: flex;
+            flex-direction: row;
+        }
 
-.subject-namee {
-    font-weight: bold;
-    font-size: 1.2em;
-}
+        .subject-namee {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
 
-/* เเก้เเล้วววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววว*/
-.course-details-2 {
-    font-size: 0.5em;
-}
-       /* กำหนดลักษณะของ sidebar-heading */
-.sidebar-heading {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
+        /* เเก้เเล้วววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววว*/
+        .course-details-2 {
+            font-size: 0.5em;
+        }
+            /* กำหนดลักษณะของ sidebar-heading */
+        .sidebar-heading {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
 
-.profile-img {
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    margin-right: 15px;
-    object-fit: cover;
-}
+        .profile-img {
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
 
-.profile-info {
-    display: flex;
-    flex-direction: column;
-}
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
 
-.profile-info strong {
-    font-size: 0.9rem;
-    color: #333;
-}
+        .profile-info strong {
+            font-size: 0.9rem;
+            color: #333;
+        }
 
-.profile-info small {
-    font-size: 0.6rem;
-    color: #666;
-}
+        .profile-info small {
+            font-size: 0.6rem;
+            color: #666;
+        }
 
-.responsive-div {
-    margin-left: 20px;
-    font-size: 1.2em; /* ขนาดตัวอักษร */
-}
+        .responsive-div {
+            margin-left: 20px;
+            font-size: 1.2em; /* ขนาดตัวอักษร */
+        }
 
-@media screen and (max-width: 640px) {
-    .sidebar-heading {
-        padding: 5px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        @media screen and (max-width: 640px) {
+            .sidebar-heading {
+                padding: 5px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    #wrapper {
-        display: block;
-    }
+            #wrapper {
+                display: block;
+            }
 
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
 
-    .hamburger .line {
-        width: 30px;
-        height: 3px;
-        background-color: #000;
-        margin: 5px 0;
-    }
+            .hamburger .line {
+                width: 30px;
+                height: 3px;
+                background-color: #000;
+                margin: 5px 0;
+            }
 
-    .profile-img {
-        width: 50px;
-        height: 50px;
-        margin-right: 5px;
-        margin-bottom: 10px;
-    }
+            .profile-img {
+                width: 50px;
+                height: 50px;
+                margin-right: 5px;
+                margin-bottom: 10px;
+            }
 
-    .profile-info strong {
-        font-size: 0.9rem;
-    }
+            .profile-info strong {
+                font-size: 0.9rem;
+            }
 
-    .profile-info small {
-        font-size: 0.6rem;
-    }
+            .profile-info small {
+                font-size: 0.6rem;
+            }
 
-    .list-group-item {
-        font-size: 1rem; /* ลดขนาดฟอนต์ในหน้าจอขนาดเล็ก */
-    }
+            .list-group-item {
+                font-size: 1rem; /* ลดขนาดฟอนต์ในหน้าจอขนาดเล็ก */
+            }
 
-    .list-group-item i {
-        font-size: 1.5rem; /* ลดขนาดไอคอนในหน้าจอขนาดเล็ก */
-    }
+            .list-group-item i {
+                font-size: 1.5rem; /* ลดขนาดไอคอนในหน้าจอขนาดเล็ก */
+            }
 
-    .responsive-div {
-        margin-left: 20px; /* ลดระยะห่างให้เล็กลงในหน้าจอมือถือ */
-        font-size: 1em; /* ปรับขนาดตัวอักษรให้อยู่ในขนาดที่เหมาะสม */
-    }
+            .responsive-div {
+                margin-left: 20px; /* ลดระยะห่างให้เล็กลงในหน้าจอมือถือ */
+                font-size: 1em; /* ปรับขนาดตัวอักษรให้อยู่ในขนาดที่เหมาะสม */
+            }
 
-    .course-details-2 {
-    font-size: 0.7em;
-}
+            .course-details-2 {
+            font-size: 0.7em;
+        }
 
-}
+        }
 
         .filter-container {
             display: flex;
@@ -550,68 +555,68 @@ usort($courses, function ($a, $b) {
             max-width: 200px; /* ขนาดช่อง dropdown */
         }
        /* ปรับเปลี่ยนสไตล์ของปุ่มออกจากระบบให้ใหญ่ขึ้น */
-    #logout-button {
-        display: flex;
-        align-items: center;
-        font-size: 1.20rem; /* เพิ่มขนาดตัวหนังสือ */
-        padding: 0.75rem 1.5rem; /* เพิ่มขนาดของ Padding */
-        background-color: #ffffff; /* สีพื้นหลังของปุ่มเป็นสีขาว */
-        color: #000000; /* สีตัวหนังสือเป็นสีดำ */
-        border: none; /* ไม่มีเส้นขอบ */
-        border-radius: 8px; /* ขอบปุ่มโค้งมน */
-        text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
-        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    #logout-button i {
-        width: 30px; /* กำหนดความกว้างของไอคอนให้เท่ากันทุกลิงก์ */
-        text-align: center; /* จัดไอคอนให้อยู่กึ่งกลาง */
-    }
-    #logout-button:hover {
-        background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
-        transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
-    }
-    .text-center h5 {
-    margin-bottom: 20px; /* ช่องว่างด้านล่างของข้อความ */
-}
-.list-group-item {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 0;
-    background: transparent; /* Transparent background */
-    color: #000; /* Black text */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
+        #logout-button {
+            display: flex;
+            align-items: center;
+            font-size: 1.20rem; /* เพิ่มขนาดตัวหนังสือ */
+            padding: 0.75rem 1.5rem; /* เพิ่มขนาดของ Padding */
+            background-color: #ffffff; /* สีพื้นหลังของปุ่มเป็นสีขาว */
+            color: #000000; /* สีตัวหนังสือเป็นสีดำ */
+            border: none; /* ไม่มีเส้นขอบ */
+            border-radius: 8px; /* ขอบปุ่มโค้งมน */
+            text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        #logout-button i {
+            width: 30px; /* กำหนดความกว้างของไอคอนให้เท่ากันทุกลิงก์ */
+            text-align: center; /* จัดไอคอนให้อยู่กึ่งกลาง */
+        }
+        #logout-button:hover {
+            background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
+            transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
+        }
+        .text-center h5 {
+        margin-bottom: 20px; /* ช่องว่างด้านล่างของข้อความ */
+        }
+        .list-group-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 0;
+            background: transparent; /* Transparent background */
+            color: #000; /* Black text */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
 
-.list-group-item i {
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .list-group-item i {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.list-group-item-action:hover {
-    background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
-    transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
-    border-radius: 6%;
-}
+        .list-group-item-action:hover {
+            background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อเมาส์เลื่อนมาที่ปุ่ม */
+            transform: scale(1.20); /* ขยายปุ่มเล็กน้อย */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
+            border-radius: 6%;
+        }
 
     </style>
 </head>
 <body>
-     <!-- เมนูนนนนนนนนนนนนนนนนนนนนนนนนนนน-->
 <div class="d-flex" id="wrapper">
 <div class="overlay" id="overlay"></div> <!-- เพิ่ม overlay -->
-    <!-- Sidebar-->
+
+    <!-- Sidebar -->
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading">
             <?php if ($isLoggedIn && !empty($userImage)): ?>
@@ -629,7 +634,7 @@ usort($courses, function ($a, $b) {
             <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="addtable.php" style="font-size: 1rem; ">
                 <i class="fas fa-home fa-lg" style="font-size: 1.5rem; margin-left: 10px;" ></i> HOME
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/calendar.php" style="font-size: 1rem;">
+            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/learn-reactjs-2024/calendar/indext.php" style="font-size: 1rem;">
                 <i class="fas fa-calendar fa-lg" style="font-size: 1.5rem; margin-left: 10px;"></i> CALENDAR
             </a>
         </div>
@@ -638,16 +643,16 @@ usort($courses, function ($a, $b) {
         <div class="responsive-div" style="margin-left: 30px;">ENROLLED</div>
             <div class="btn-container-2">
                 <?php
-// Courses list in Menu
-foreach ($courses as $course):
-    $color = getColorForCourse($course['subject_id']);
-    $subjectName = htmlspecialchars($course['subject_name']);
-    $day_of_week = htmlspecialchars($course['day_of_week']);
-    // ตัดข้อมูลให้แสดงแค่ 3 ตัวอักษรแรก
-    $shortName = mb_substr($day_of_week, 0, 3);
-    ?>
-
-			                <a href="weeksubject.php?course_id=<?php echo htmlspecialchars($course['subject_id']); ?>" class="btn btn-circle">
+                // Courses list in Menu
+                foreach ($courses as $course):
+                    $color = getColorForCourse($course['subject_id']);
+                    $subjectName = htmlspecialchars($course['subject_name']);
+                    $day_of_week = htmlspecialchars($course['day_of_week']);
+                    // ตัดข้อมูลให้แสดงแค่ 3 ตัวอักษรแรก
+                    $shortName = mb_substr($day_of_week, 0, 3);
+                    ?>
+                            <!-- Link to Section of left menu -->
+			                <a href="../web_app/section/import-students/manage-members.php?subject_id=<?php echo htmlspecialchars($course['subject_id']); ?>" class="btn btn-circle">
 			                    <div class="circle-icon" style="background-color: <?php echo $color; ?>; margin-left: 9px;">
 			                        <span class="circle-text"><?php echo $shortName; ?></span>
 			                    </div>
@@ -659,7 +664,7 @@ foreach ($courses as $course):
 			                        <div class="info-row">
 			                            <span class="course-details-2">
 			                                (<?php echo htmlspecialchars($course['start_time']) . " - " . htmlspecialchars($course['end_time']); ?>) <?php echo htmlspecialchars($course['day_of_week']); ?>
-			                                กลุ่ม: <?php echo htmlspecialchars($course['section']); ?>
+			                                Sec: <?php echo htmlspecialchars($course['section']); ?>
 			                            </span>
 			                        </div>
 			                    </div>
@@ -675,9 +680,10 @@ foreach ($courses as $course):
             </div>
     </div>
      <!-- ถึงนี่นนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนนน-->
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
-        <!-- Top navigation-->
+        
+     <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+    <!-- Top navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container-fluid">
         <div class="d-flex align-items-center">
@@ -691,7 +697,9 @@ foreach ($courses as $course):
 
 <!-- Page content -->
 <div class="container mt-5">
-    <h1 >TIMETABLE</h1>
+    <div class="d-flex align-items-center mb-4">
+        <h1>TIMETABLE</h1>
+    </div>
     <hr>
     <!-- ส่วนของ HTML -->
     <div class="filter-container">
@@ -748,6 +756,7 @@ foreach ($courses as $course):
     <?php endif;?>
     </div>
     <br>
+    <br>
         <h2>Classroom</h2>
         <hr>
         <br>
@@ -761,7 +770,7 @@ foreach ($courses as $course):
 			            <span class="subject-name"><?php echo htmlspecialchars($course['subject_name']); ?></span><br>
 			            <span class="course-details">
 			                (<?php echo htmlspecialchars($course['start_time']) . " - " . htmlspecialchars($course['end_time']); ?>) <?php echo htmlspecialchars($course['day_of_week']); ?><br>
-			                กลุ่ม: <?php echo htmlspecialchars($course['section']); ?>
+			                Section: <?php echo htmlspecialchars($course['section']); ?>
 			            </span>
 			        </a>
 			    <?php endforeach;?>

@@ -41,7 +41,7 @@
     }
     /* Imort form */
     .container-form {
-        font-size: 12px;
+        font-size: 10px;
         width: 100%;
         padding: 30px;
         background-color: #ffffff;
@@ -50,10 +50,14 @@
         border-radius: 10px;
     }
     .container-form button {
-        font-size: 14px;
+        font-size: 12px;
         padding: 6px 12px;
     }
-
+    .del-mul-btn-container {
+        display: flex;
+        justify-content: flex-end; /* จัดตำแหน่งปุ่มให้ชิดขวา */
+        margin-bottom: 10px;
+    }    
     /* table custom */
     .table-container {
         width: 100%;  /* กำหนดความกว้างของตาราง */
@@ -83,28 +87,44 @@
         overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
     }
     th.col-1 {
-        width: 20px; /* No */
+        width: 20px; /* Select / No */
     }
     th.col-2 {
-        width: 130px; /* Std_id */
+        width: 80px; /* Std_id */
     }
     th.col-3 {
         width: 200px; /* Name */
     }
     th.col-4 {
-        width: 180px; /* Facty */
+        width: 200px; /* Facty */
     }
-    th.col-5 {
-        width: 60px; /* Action */
-    } 
-    /* Action Btn */
-    .custom-btn {
-        font-size: 8px;
-        width:  38px;
-        padding: 3px 6px;
+    .next-btn {
+        font-size: 12px; /* ขนาดฟอนต์ */
+        padding: 6px 12px; /* ขนาด padding ของปุ่ม */
+        display: inline-block;
+        width: 100px; /* กำหนดความกว้างของปุ่ม */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        line-height: 1.5; /* ความสูงของบรรทัดเพื่อให้ปุ่มมีความสูงเท่ากัน */
         margin: 3px;
     }
-
+    .del_mul-btn {
+        font-size: 10px !important;
+        padding: 5px 10px !important;
+        display: inline-block !important;
+        width: 60px !important;
+        text-align: center !important;
+        line-height: 1.5 !important;
+        margin-bottom: 10px !important;
+        background-color: #dc3545 !important; /* สีแดง */
+        color: #fff !important; /* สีข้อความขาว */
+        border: none !important; /* ไม่มีกรอบ */
+        border-radius: 4px !important; /* ขอบมน */
+        cursor: pointer !important; /* เปลี่ยน cursor เป็น pointer */
+    }
+        
+    .del_mul-btn:hover {
+        background-color: #c82333 !important; /* สีแดงเข้มเมื่อ hover */
+    }
     .footer {
         font-size: 12px;
     }
@@ -145,14 +165,24 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
+    /* Imort form */
     .container-form {
+        font-size: 12px;
         max-width: 300px;
         padding: 30px;
         background-color: #ffffff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
-
+    .container-form button {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    .del-mul-btn-container {
+        display: flex;
+        justify-content: flex-end; /* จัดตำแหน่งปุ่มให้ชิดขวา */
+        margin-bottom: 10px;
+    }
     /* table custom */
     .table-container {
         width: 100%;  /* กำหนดความกว้างของตาราง */
@@ -182,26 +212,43 @@
         overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
     }
     th.col-1 {
-        width: 20px; /* No */
+        width: 20px; /* Select / No */
     }
     th.col-2 {
-        width: 120px; /* Std_id */
+        width: 100px; /* Std_id */
     }
     th.col-3 {
-        width: 160px; /* Name */
+        width: 180px; /* Name */
     }
     th.col-4 {
-        width: 160px; /* Facty */
+        width: 180px; /* Facty */
     }
-    th.col-5 {
-        width: 60px; /* Action */
-    } 
-    /* Action Btn */
-    .custom-btn {
-        font-size: 10px;
-        width:  50px;
-        padding: 4px 8px;
+    .next-btn {
+        font-size: 13px; /* ขนาดฟอนต์ */
+        padding: 8px 16px; /* ขนาด padding ของปุ่ม */
+        display: inline-block;
+        width: 100px; /* กำหนดความกว้างของปุ่ม */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        line-height: 1.5; /* ความสูงของบรรทัดเพื่อให้ปุ่มมีความสูงเท่ากัน */
         margin: 3px;
+    }
+    .del_mul-btn {
+        font-size: 10px;
+        padding: 8px 16px;
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        background-color: #dc3545 !important; /* ใช้รหัสสีแดงและเพิ่ม !important */
+        color: #fff !important; /* สีข้อความ */ /* เพิ่มความสำคัญให้กับ CSS: ใช้ !important เพื่อให้แน่ใจว่าสไตล์ของคุณมีความสำคัญมากกว่าของ Bootstrap */
+        border: none !important; /* ลบกรอบออก */
+        border-radius: 4px !important; /* ขอบมน */
+        cursor: pointer; /* แสดง cursor เป็น pointer */
+    }
+    
+    .del_mul-btn:hover {
+        background-color: #c82333 !important; /* สีแดงเข้มเมื่อ hover */
     }
 }
 
@@ -271,10 +318,15 @@
         border-radius: 10px;
     }
 
+    .del-mul-btn-container {
+        display: flex;
+        justify-content: flex-end; /* จัดตำแหน่งปุ่มให้ชิดขวา */
+        margin-bottom: 10px;
+    }
     /* table custom */
     .table-container {
         width: 100%;  /* กำหนดความกว้างของตาราง */
-        height: 300px; /* กำหนดความสูงของตาราง */
+        height: auto; /* กำหนดความสูงของตาราง */
         overflow-x: auto; /* เปิด Scrollbar แนวนอนเมื่อเนื้อหายาวกว่าความกว้าง */
         overflow-y: auto; /* เปิด Scrollbar แนวตั้งเมื่อเนื้อหายาวกว่าความสูง */
     }
@@ -300,29 +352,45 @@
         overflow: hidden; /* ซ่อนข้อความที่ยาวเกิน */
     }
     th.col-1 {
-        width: 20px; /* No */
+        width: 20px; /* Select / No */
     }
     th.col-2 {
-        width: 120px; /* Std_id */
+        width: 80px; /* Std_id */
     }
     th.col-3 {
-        width: 160px; /* Name */
+        width: 200px; /* Name */
     }
     th.col-4 {
-        width: 160px; /* Facty */
+        width: 200px; /* Facty */
     }
-    th.col-5 {
-        width: 30px; /* Action */
-    } 
     /* Action Btn */
-    .custom-btn {
+    .next-btn {
         font-size: 14px; /* ขนาดฟอนต์ */
         padding: 8px 16px; /* ขนาด padding ของปุ่ม */
         display: inline-block;
-        width: 80px; /* กำหนดความกว้างของปุ่ม */
+        width: 150px; /* กำหนดความกว้างของปุ่ม */
         text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
         line-height: 1.5; /* ความสูงของบรรทัดเพื่อให้ปุ่มมีความสูงเท่ากัน */
         margin: 3px;
     }
+    .del_mul-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        background-color: #dc3545 !important; /* ใช้รหัสสีแดงและเพิ่ม !important */
+        color: #fff !important; /* สีข้อความ */ /* เพิ่มความสำคัญให้กับ CSS: ใช้ !important เพื่อให้แน่ใจว่าสไตล์ของคุณมีความสำคัญมากกว่าของ Bootstrap */
+        border: none !important; /* ลบกรอบออก */
+        border-radius: 4px !important; /* ขอบมน */
+        cursor: pointer; /* แสดง cursor เป็น pointer */
+    }
+    
+    .del_mul-btn:hover {
+        background-color: #c82333 !important; /* สีแดงเข้มเมื่อ hover */
+    }
 }
+
 

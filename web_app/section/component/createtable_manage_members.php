@@ -103,7 +103,7 @@ if (isset($_GET['subject_id'])) {
             // ถ้ามี records น้อยกว่า 15 ให้แทรกข้อมูลเพิ่ม
             if ($current_count < 15) {
                 for ($i = $current_count + 1; $i <= 15; $i++) {
-                    $week_date = date('Y-m-d', strtotime("+$i week"));
+                    $week_date = date('Y-m-d', strtotime("+$i week")); // จัดเก็บในฐานข้อมูลด้วยรูปแบบ Y-m-d
                     $sql_insert_week = "INSERT INTO $table_weeks_name (week_date) VALUES ('$week_date')";
                     if ($conn->query($sql_insert_week) === TRUE) {
                         /*echo "Week $i data inserted successfully.<br>";*/
