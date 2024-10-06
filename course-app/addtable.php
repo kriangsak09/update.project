@@ -285,7 +285,7 @@ if (isset($_GET['logout'])) {
             <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="addtable.php" style="font-size: 1rem;">
                 <i class="fas fa-home fa-lg" style="font-size: 1.5rem; margin-left: 10px;"></i> HOME
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/learn-reactjs-2024/calendar/index.php" style="font-size: 1rem;">
+            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/calendar.php" style="font-size: 1rem;">
                 <i class="fas fa-calendar fa-lg" style="font-size: 1.5rem; margin-left: 10px;"></i> CALENDAR
             </a>
 

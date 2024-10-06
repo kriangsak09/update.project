@@ -40,6 +40,7 @@ body {
   justify-content: center; /* จัดกลางแนวนอน */
   align-items: center; /* จัดกลางแนวตั้ง */
   text-align: center;
+  color: black
 }
 
 .right-side {

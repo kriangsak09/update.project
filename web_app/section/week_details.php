@@ -79,8 +79,6 @@ $url_home = './index.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="../styles.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="navigation.css">
     <link href="./weekdetails_upload.css" rel="stylesheet" />
     <style>
         /* Small devices (Phone 0-576px) */
@@ -279,14 +277,12 @@ $url_home = './index.php';
 </head>
 <body>
     <div class="d-flex" id="wrapper">
-        <!-- Include Setting navigation -->
-        <?php include 'component/setting_nav.php';?>
-
-        <!-- Include navigation -->
-        <?php include './component/navigation.php';?>
-
-              <!-- Page content wrapper-->
+        
+        <!-- Page content wrapper-->
         <div class="page-content-wrapper">
+
+            <!-- Include navigation -->
+            <?php //include('./component/navigation.php'); ?>
 
             <!-- Menu Bar class "navbar-custom" -->
             <nav class="navbar navbar-expand-lg navbar-custom border-bottom">                
@@ -295,6 +291,7 @@ $url_home = './index.php';
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item active"><a class="nav-link" href="javascript:window.history.back()">Back</a></li>
                         <li class="nav-item active">
                             <a class="nav-link" href="<?php echo htmlspecialchars($url_members); ?>">Manage Members</a>
                         </li>
@@ -432,32 +429,9 @@ $url_home = './index.php';
         </div> 
     <!-- End Page content wrapper-->
     </div>
-<script src="./js/scripts.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var sidebarToggle = document.getElementById('sidebarToggle');
-    var body = document.body;
-    var wrapper = document.getElementById('wrapper');
-    var overlay = document.getElementById('overlay');
-
-    // Toggle sidebar visibility when button is clicked
-    sidebarToggle.addEventListener('click', function () {
-        wrapper.classList.toggle('toggled');
-        overlay.style.display = wrapper.classList.contains('toggled') ? 'block' : 'none';
-    });
-
-    // Hide sidebar and overlay when overlay is clicked
-    overlay.addEventListener('click', function () {
-        body.classList.remove('sb-sidenav-toggled');
-        wrapper.classList.remove('toggled');
-        overlay.style.display = 'none';
-    })
-});
-
-</script>
 </body>
 </html>

@@ -183,7 +183,7 @@ usort($courses, function ($a, $b) {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* ปรับให้ตารางเริ่มแสดงจากทางด้านซ้าย ถ้าเป็น center มันอยู่กลางนะเเต่มันเเสดงข้อมูลในตารางไม่ครบ ข้อมูล ID */
+            align-items: center;
             margin-top: 20px;
             padding: 20px;
             border-radius: 8px;
@@ -198,7 +198,6 @@ usort($courses, function ($a, $b) {
             font-size: 24px;
             color: #333;
             margin-bottom: 20px;
-            align-items: center; 
             text-align: center;
             border-bottom: 2px solid #007bff;
             border-width: 100%;
@@ -270,7 +269,6 @@ usort($courses, function ($a, $b) {
 
             .table-container {
                 padding: 10px;
-                max-width: 100%;
             }
 
             .table-title {
@@ -279,7 +277,7 @@ usort($courses, function ($a, $b) {
 
             .table th, .table td {
                 font-size: 0.8em;
-                padding: 10px;
+                padding: 5px;
             }
 
             .table-title {
@@ -634,7 +632,7 @@ usort($courses, function ($a, $b) {
             <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="addtable.php" style="font-size: 1rem; ">
                 <i class="fas fa-home fa-lg" style="font-size: 1.5rem; margin-left: 10px;" ></i> HOME
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/learn-reactjs-2024/calendar/indext.php" style="font-size: 1rem;">
+            <a class="list-group-item list-group-item-action list-group-item-light mb-2" href="http://localhost/myproject/calendar.php" style="font-size: 1rem;">
                 <i class="fas fa-calendar fa-lg" style="font-size: 1.5rem; margin-left: 10px;"></i> CALENDAR
             </a>
         </div>

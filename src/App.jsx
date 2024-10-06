@@ -33,7 +33,7 @@ function App() {
 
   const getRedirectUrl = (profile) => {
     const baseUrl = profile.email.endsWith('@gmail.com')
-      ? 'http://localhost/myproject/index.php' // @gmail
+      ? 'http://localhost/myproject/learn-reactjs-2024/web_app/admin/admin_home.php' // @gmail
       : 'http://localhost/myproject/learn-reactjs-2024/course-app/addtable.php'; // @mail.rmutk.ac.th // Teacher Page
   
     const params = new URLSearchParams({

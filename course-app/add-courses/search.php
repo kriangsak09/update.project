@@ -2,24 +2,48 @@
 session_start();
 include('db.php');
 
-// ดึงข้อมูลวิชาพร้อมข้อมูลห้องเรียนและครู
+// ดึงค่าจากฟอร์มค้นหา
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+// คำสั่ง SQL สำหรับค้นหาข้อมูลทั้งหมด
 $sql = "SELECT c.*, 
                cl.room_number, cl.floor, cl.building, 
-               t1.first_name as first_name1, t1.last_name as last_name1, t1.teacher_id as teacher_id1,
-               t2.first_name as first_name2, t2.last_name as last_name2, t2.teacher_id as teacher_id2,
-               t3.first_name as first_name3, t3.last_name as last_name3, t3.teacher_id as teacher_id3
+               t1.first_name as first_name1, t1.last_name as last_name1, 
+               t2.first_name as first_name2, t2.last_name as last_name2, 
+               t3.first_name as first_name3, t3.last_name as last_name3 
         FROM courses c
         LEFT JOIN classrooms cl ON c.classroom_id = cl.id
         LEFT JOIN teachers t1 ON c.teacher_id = t1.id
         LEFT JOIN teachers t2 ON c.teacher2_id = t2.id
-        LEFT JOIN teachers t3 ON c.teacher3_id = t3.id";
-$result = $conn->query($sql);
+        LEFT JOIN teachers t3 ON c.teacher3_id = t3.id
+        WHERE c.subject_id LIKE ? 
+           OR c.course_name LIKE ? 
+           OR c.subject_name LIKE ?  -- เพิ่มการค้นหาสำหรับ Subject Name
+           OR c.theory_hours LIKE ? 
+           OR c.practical_hours LIKE ? 
+           OR c.semester LIKE ? 
+           OR c.academic_year LIKE ? 
+           OR c.day_of_week LIKE ? 
+           OR c.section LIKE ? 
+           OR cl.room_number LIKE ? 
+           OR c.teacher_id LIKE ? 
+           OR c.teacher2_id LIKE ? 
+           OR c.teacher3_id LIKE ?"; 
+           
+
+$stmt = $conn->prepare($sql);
+$searchParam = "%" . $search . "%";
+// จำนวนตัวแปรต้องตรงกัน
+$stmt->bind_param("sssssssssssss", $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam, $searchParam,$searchParam);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Course List</title>
     <!-- Favicon-->
@@ -30,12 +54,11 @@ $result = $conn->query($sql);
     <link href="./css/styles.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        body {          
+        body {
             background: white;
         }
-
         .container h1 {
-            color: black;          
+            color: black;
         }
         .container {
             max-width: 1000px;
@@ -57,8 +80,8 @@ $result = $conn->query($sql);
             font-family: 'Arial', sans-serif;
         }
         .list-group-items h5 {
-            font-size: 1rem; /* ขนาดสำหรับหัวเรื่อง */
-            font-family: 'Arial', sans-serif;
+        font-size: 1rem; /* ขนาดสำหรับหัวเรื่อง */
+        font-family: 'Arial', sans-serif;
         }
         #clear_btn {
             border-radius: 5px;
@@ -85,8 +108,6 @@ $result = $conn->query($sql);
         </div>
     </nav>
     <!-- End Top navigation-->
-     
-            <!-- Page content-->
 <div class="container mt-5">
     <h1>Course List</h1>
     <hr>
@@ -120,11 +141,11 @@ $result = $conn->query($sql);
                     <p class='mb-2'>Teacher 2: " . htmlspecialchars($row["teacher2_id"]) . "</p>
                     <p class='mb-2'>Teacher 3: " . htmlspecialchars($row["teacher3_id"]) . "</p>
                 </div>
-                 <div>
-                            <a href='edit.php?id=" . $row["id"] . "' class='btn btn-warning'>Edit</a>
-                            <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#deleteModal' data-id='" . $row["id"] . "'>Delete</button>
-                        </div>
-                    </li>";
+                <div>
+                    <a href='edit.php?id=" . $row["id"] . "' class='btn btn-warning'>Edit</a>
+                    <button type='button' class='btn btn-danger delete-btn' data-bs-toggle='modal' data-bs-target='#deleteModal' data-id='" . $row["id"] . "'>Delete</button>
+                </div>
+                </li>";
             }
         } else {
             echo "<li class='list-group-item'>0 results</li>";
@@ -132,30 +153,6 @@ $result = $conn->query($sql);
         ?>
     </ul>
 </div>
-</div>
-</div>
-
-<!-- Modal Popup -->
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="uploadModalLabel">Update result</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p id="modalMessage"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-                </form>
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -176,23 +173,8 @@ $result = $conn->query($sql);
 </div>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+<script src="js/scripts.js"></script>
         <script>
-            // Script to show modal based on session status
-         <?php if (isset($_SESSION["success"])) { ?>
-            var modalMessage = "<?php echo $_SESSION['success']; ?>";
-            document.getElementById('modalMessage').textContent = modalMessage;
-            var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'));
-            uploadModal.show();
-            <?php unset($_SESSION["success"]); ?>
-        <?php } elseif (isset($_SESSION["error"])) { ?>
-            var modalMessage = "<?php echo $_SESSION['error']; ?>";
-            document.getElementById('modalMessage').textContent = modalMessage;
-            var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'));
-            uploadModal.show();
-            <?php unset($_SESSION["error"]); ?>
-        <?php } ?>
             
             var deleteModal = document.getElementById('deleteModal');
     deleteModal.addEventListener('show.bs.modal', function (event) {
@@ -206,7 +188,3 @@ $result = $conn->query($sql);
         </script>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>

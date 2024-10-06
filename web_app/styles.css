@@ -33,11 +33,10 @@ h1 {
     border-radius: 10px;
     text-align: start;
 }
-
 #wrapper {
     display: flex;
     width: 100%;
-    /* เอา height to full viewport height ออก */
+    height: 100vh; /* Set height to full viewport height */
 }
 
 .nav-item {
